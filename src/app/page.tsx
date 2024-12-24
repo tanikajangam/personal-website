@@ -17,7 +17,7 @@ export default function Home() {
  */
     <div className="p-10">
       <h1 className="text-4xl font-bold">Hi, It&apos;s Tanika! 👋</h1>
-      <p>I'm currently updating my website today, will be done by the end of today hopefully!</p>
+      <p>I&apos;m currently updating my website today, will be done by the end of today hopefully!</p>
     </div>
     /* </div> */
 
