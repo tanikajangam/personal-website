@@ -1,25 +1,31 @@
-import Navbar from '@/components/Navbar';
+
+import Navbar from '../components/Navbar';
+
+
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 
 export default function Home() {
   return (
-    /* 
-    <div>
-      <Navbar />
-      <section id="projects" className="h-screen flex items-center justify-center">
-        <h1 className="text-5xl text-white">Projects Section</h1>
-      </section>
-      <section id="resume" className="h-screen flex items-center justify-center">
-        <h1 className="text-5xl text-white">Resume Section</h1>
-      </section>
-      <section id="blog" className="h-screen flex items-center justify-center">
-        <h1 className="text-5xl text-white">Blog Section</h1>
-      </section>
- */
-    <div className="p-10">
-      <h1 className="text-4xl font-bold">Hi, It&apos;s Tanika! 👋</h1>
-      <p>I&apos;m currently updating my website today, will be done by the end of today hopefully!</p>
+
+    <div >
+      < Navbar />
+      <div className="p-2 h-screen container mx-auto flex md:flex-row sm:flex-col justify-between items-center content-center">
+        <div className={`flex h-4/5 flex-col basis-1/2 justify-start content-center p-5 leading-loose tracking-wide ${montserrat.className}`}>
+          <h1 className="text-7xl font-bold">Hi, </h1>
+          <h1 className="text-7xl font-bold">I'm Tanika. </h1>
+          <h2 className="text-4xl font-bold">I build software.</h2>
+          <a href="#blog" className="rounded-full ">Check out my blog!</a>
+
+
+        </div>
+
+        <div className="basis-1/2 h-4/5">
+          asdf
+        </div>
+      </div>
     </div>
-    /* </div> */
 
 
   );
