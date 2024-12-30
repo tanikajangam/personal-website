@@ -14,11 +14,11 @@ export default function Navbar() {
         setIsOpen(!isOpen);
     };
 
-        return (
-            <div className={montserrat.className}>
+    return (
+        <div className={montserrat.className}>
 
-            <nav className="p-4 title">
-                <div className="container mx-auto my-1 px-4 flex flex-row justify-between items-center">
+            <nav className="p-4 mt-3">
+                <div className="lg:max-w-7xl mx-auto my-1 px-4 flex flex-row justify-between items-center">
                     <div className="logo basis-2/3">
                         <div className="text-purple-400 text-5xl font-normal">
                             TJ

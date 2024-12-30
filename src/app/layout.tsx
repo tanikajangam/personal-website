@@ -1,4 +1,4 @@
-import './globals.css'
+import './globals.css';
 
 export const metadata = {
   title: 'Tanika Jangam',
@@ -12,6 +12,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/TJ.png" type="image/png" />
+      </head>
       <body>{children}</body>
     </html>
   )

@@ -17,10 +17,25 @@
 }
 
 body {
+  font-family: 'Open Sans';
   color: rgb(var(--foreground-rgb));
   background-color: #2C2F34;
+  color: #D2D3D5;
 }
 
 .purple {
   color: #A36BC0
+}
+
+.light-gray {
+  color: #7E7F81
+}
+
+.white {
+  color: #fff;
+}
+
+.blurb {
+  font-size: 17px;
+  font-family: 'Open Sans';
 }
