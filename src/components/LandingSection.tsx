@@ -24,7 +24,7 @@ export default function LandingSection() {
                     <span className="fade-in-text">Hi,</span>
                 </h1>
                 <h1 className="text-7xl light-gray mb-3">
-                    I'm <span className="white fade-in-text delay-150">Tanika</span>.
+                    I&apos;m <span className="white fade-in-text delay-150">Tanika</span>.
                 </h1>
                 <h2 className="text-4xl my-2 light-gray">
                     I build <span className="white fade-in-text delay-300">software</span>.
@@ -44,7 +44,7 @@ export default function LandingSection() {
                 <div className="xl:w-3/4 lg:w-5/6 md:w-full md:m-0 mx-auto">
                     <p className="light-gray mb-3">Math & Computer Science @ UMD</p>
                     <p className="blurb fade-in-text delay-500">
-                        Throughout my college career I’ve developed an increasing passion for software development and problem-solving,
+                        Throughout my college career I&apos;ve developed an increasing passion for software development and problem-solving,
                         and cloud computing. I developed this website as a way to streamline my creativity and flow of thoughts.
                     </p>
                     <br />
