@@ -16,7 +16,7 @@ export default function CertificationSection() {
     }, []);
 
     return (
-        <div className={`p-4 px-6 lg:max-w-6xl min-h-72 mx-auto flex mt-11 md:flex-row flex-col justify-center items-center content-center transition-all duration-700 ease-in-out transform ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`p-4 px-6 lg:max-w-4xl min-h-72 mx-auto flex mt-11 md:flex-row flex-col justify-center items-center content-center transition-all duration-700 ease-in-out transform ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 
             {/* Text Section */}
             <div className={`flex h-4/5 flex-col basis-1/2 text-center content-center md:text-left ml-3 ${montserrat.className}`}>
@@ -33,13 +33,13 @@ export default function CertificationSection() {
             </div>
 
             {/* Certificate Images Section (Hover Effect Only) */}
-            <div className="w-full basis-1/2 flex flex-row mt-4 sm:m-0 justify-start">
+            <div className="w-full basis-1/2 flex flex-row mt-4 justify-center md:justify-end">
                 <div className="transition-transform duration-700 ease-out">
                     <Image
                         src="/dev-cert.png"
                         alt="AWS Developer Certification - Associate Level"
-                        width={100}
-                        height={100}
+                        width={170}
+                        height={170}
                         className="hover:scale-105 transition-all duration-300"
                     />
                 </div>
@@ -48,8 +48,8 @@ export default function CertificationSection() {
                     <Image
                         src="/solarch-cert.png"
                         alt="AWS Solutions Architect Certification - Associate Level"
-                        width={100}
-                        height={100}
+                        width={170}
+                        height={170}
                         className="hover:scale-105 transition-all duration-300"
                     />
                 </div>

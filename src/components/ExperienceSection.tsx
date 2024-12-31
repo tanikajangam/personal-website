@@ -1,7 +1,12 @@
-"use client"
+"use client";
 
 import "../app/globals.css";
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { FaArrowRight } from 'react-icons/fa';
+import { Montserrat } from 'next/font/google';
+import Link from 'next/link';
+
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 
 interface Job {
     company: string;
@@ -17,7 +22,6 @@ const jobs: Job[] = [
             'Automated AWS resource deployment by developing Lambda functions for custom authorizers and pre- validation scripts, enhancing security and deployment efficiency using Python and CloudFormation',
             'Provided technical support for client incidents hosted on AWS ECS, EKS, and CaaS, ensuring swift resolutions',
             'Led weekly meetings to optimize GitHub CI / CD pipelines, resulting in a 10 % boost in deployment speeds'
-
         ],
     },
     {
@@ -49,19 +53,26 @@ const jobs: Job[] = [
 ];
 
 export default function ExperienceSection() {
-    // const [selectedCompany, setSelectedCompany] = useState<string>('Vanguard');
-
-    // const handleSelect = (company: string) => {
-    //     setSelectedCompany(company);
-    // };
-
-    // const selectedJob = jobs.find(job => job.company === selectedCompany);
-
-
     const [selectedCompany, setSelectedCompany] = useState<string>('Vanguard');
+    const [fadeOut, setFadeOut] = useState(false);
+    const [fadeIn, setFadeIn] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef<HTMLDivElement | null>(null);
 
     const handleSelect = (company: string) => {
-        setSelectedCompany(company);
+        setFadeOut(true);
+
+        // Wait for fade-out, then switch job and trigger fade-in
+        setTimeout(() => {
+            setSelectedCompany(company);
+            setFadeOut(false);
+            setFadeIn(true);
+
+            // Reset fade-in after it finishes
+            setTimeout(() => {
+                setFadeIn(false);
+            }, 300); // Duration for fade-in
+        }, 300); // Duration for fade-out
     };
 
     const selectedJob = jobs.find(job => job.company === selectedCompany);
@@ -71,58 +82,100 @@ export default function ExperienceSection() {
         return (
             <>
                 {parts[0]}
-                <span className="font-bold"> @{parts[1]}</span>
+                <span className="font-semibold"> @{parts[1]}</span>
             </>
         );
     };
+
+    // Intersection Observer for Section Fade-In on Scroll
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            },
+            {
+                threshold: 0.2,
+            }
+        );
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
+
     return (
-        <div className="grid grid-cols-1 md:grid-cols-12 lg:max-w-4xl md:max-w-2xl mx-auto sm:min-h-72">
-            {/* Sidebar - Company List */}
-            <div className="col-span-2 flex flex-row md:flex-col justify-start relative">
-                {jobs.map((job, index) => (
-                    <div
-                        key={job.company}
-                        className={`p-4 cursor-pointer transition-all duration-300 ${selectedCompany === job.company
-                            ? 'text-[#A36BC0]'
-                            : 'text-gray-400'
-                            }`}
-                        onClick={() => handleSelect(job.company)}
-                    >
-                        {job.company}
-                    </div>
-                ))}
+        <div
+            ref={sectionRef}
+            className={`p-4 px-6 md:max-w-7xl mx-auto mt-11 transition-all duration-700 ease-in-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+        >
 
 
-                <div
-                    className="absolute md:block hidden w-1 bg-[#A36BC0] top-1 left-0 right-0 z-10  transition-transform duration-300 ease-in-out"
-                    style={{
-                        height: '45px',
-                        transform: `translateY(${jobs.findIndex(job => job.company === selectedCompany) * 60}px)`
-                    }}
-                ></div>
+            <div className="flex flex-col sm:flex-row justify-between w-full mb-8 md:items-end items-center">
+                <h1 className={`text-4xl ${montserrat.className}`}>{`Where I've Worked`} </h1>
 
-                <div className="absolute md:block hidden h-[225px] z-0 w-1 bg-[#575757] top-1 left-0 right-0" ></div>
+                <Link
+                    href="/resume.pdf"
+                    className={`mx-auto sm:mx-0 purple text-xl border-box hover:text-[#c084fc] transition-all group ${montserrat.className} flex flex-row items-center`}
+                >
+                    VIEW FULL RESUME <FaArrowRight className="h-5 w-5 ml-1 group-hover:translate-x-1 transition-all" />
+                </Link>
             </div>
-            {/* Job Description Section */}
-            <div
-                key={selectedCompany}
-                className="col-span-10 px-6 animate-fade-in"
-            >
-                <h2 className="text-[#A36BC0] text-lg mb-4 transition-all duration-500 ease-in-out">
-                    {selectedJob ? formatTitle(selectedJob.title) : ''}
-                </h2>
 
-                <ul className="text-[#D3D3D3] space-y-2">
-                    {selectedJob?.description.map((desc, index) => (
-                        <li key={index} className="list-disc ml-4">
-                            {desc}
-                        </li>
+            <div className="grid grid-cols-1 md:grid-cols-12 lg:max-w-4xl md:max-w-2xl mx-auto sm:min-h-72">
+
+                {/* Sidebar - Company List */}
+                <div className="col-span-2 flex flex-row md:flex-col justify-center md:justify-start relative">
+                    {jobs.map((job, index) => (
+                        <div
+                            key={job.company}
+                            className={`p-4 cursor-pointer transition-all duration-300 ${selectedCompany === job.company
+                                ? 'text-[#A36BC0]'
+                                : 'text-gray-400'
+                                }`}
+                            onClick={() => handleSelect(job.company)}
+                        >
+                            {job.company}
+                        </div>
                     ))}
-                </ul>
-            </div>
 
-        </div >
+                    <div
+                        className="absolute md:block hidden w-1 bg-[#A36BC0] top-1 left-0 right-0 z-10 transition-transform duration-300 ease-in-out"
+                        style={{
+                            height: '45px',
+                            transform: `translateY(${jobs.findIndex(job => job.company === selectedCompany) * 60
+                                }px)`,
+                        }}
+                    ></div>
+
+                    <div className="absolute md:block hidden h-[225px] z-0 w-1 bg-[#575757] top-1 left-0 right-0"></div>
+                </div>
+                {/* Job Description Section */}
+                <div
+                    className={`col-span-10 px-6 transition-all duration-500 ${fadeOut
+                        ? 'opacity-0'
+                        : fadeIn
+                            ? 'opacity-100 translate-y-0'
+                            : 'opacity-100'
+                        }`}
+                >
+                    <h2 className="text-[#A36BC0] text-lg mb-4">
+                        {selectedJob ? formatTitle(selectedJob.title) : ''}
+                    </h2>
+                    <ul className="text-[#D3D3D3] space-y-2">
+                        {selectedJob?.description.map((desc, index) => (
+                            <li key={index} className="list-disc ml-4">
+                                {desc}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </div>
     );
 }
-
-

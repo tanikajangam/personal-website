@@ -20,7 +20,7 @@ export default function Navbar() {
                 <div className="max-w-6xl mx-auto my-1 px-4 flex flex-row justify-between items-center">
                     {/* Logo with Hover Animation */}
                     <div className="logo basis-2/3">
-                        <div className="text-purple-400 text-5xl font-normal transition-transform duration-300 ease-in-out hover:scale-105 hover:rotate-6">
+                        <div className="text-purple-400 text-5xl font-normal transition-transform duration-300 ease-in-out">
                             TJ
                         </div>
                     </div>

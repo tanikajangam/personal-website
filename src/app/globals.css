@@ -16,10 +16,17 @@
   }
 }
 
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in-out;
+}
+
 body {
   font-family: 'Open Sans';
   color: rgb(var(--foreground-rgb));
   background-color: #2C2F34;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   color: #D2D3D5;
 }
 
@@ -120,4 +127,16 @@ body {
 /* Certificate Hover Glow */
 .hover\:scale-105 {
   transition: transform 0.3s ease-in-out;
+}
+
+@keyframes fade-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

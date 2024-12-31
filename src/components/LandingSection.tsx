@@ -40,8 +40,8 @@ export default function LandingSection() {
             </div>
 
             {/* Right Section - Blurb */}
-            <div className="basis-1/2 h-4/5 md:text-right text-center flex justify-end mr-3">
-                <div className="xl:w-3/4 lg:w-5/6 md:w-full md:m-0 mx-auto">
+            <div className="basis-1/2 h-4/5 md:text-right text-center flex justify-end  mr-3">
+                <div className="xl:w-3/4 lg:w-5/6 md:w-full md:m-0 md:mt-4 mx-auto">
                     <p className="light-gray mb-3">Math & Computer Science @ UMD</p>
                     <p className="blurb fade-in-text delay-500">
                         Throughout my college career I&apos;ve developed an increasing passion for software development and problem-solving,
