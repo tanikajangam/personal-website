@@ -39,3 +39,85 @@ body {
   font-size: 17px;
   font-family: 'Open Sans';
 }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth Fade-in Text with Staggered Delay */
+.fade-in-text {
+  display: inline-block;
+  opacity: 0;
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.delay-150 {
+  animation-delay: 150ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+/* Button Hover Fix */
+.outline {
+  border: 1px solid #A36BC0;
+}
+
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-left {
+  animation: fade-in-left 0.8s ease-out forwards;
+}
+
+.outline {
+  border: 1px solid #A36BC0;
+}
+
+
+/* Certificate Hover Glow */
+.hover\:scale-105 {
+  transition: transform 0.3s ease-in-out;
+}
