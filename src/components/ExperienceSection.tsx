@@ -111,17 +111,17 @@ export default function ExperienceSection() {
     return (
         <div
             ref={sectionRef}
-            className={`p-4 px-6 md:max-w-7xl mx-auto mt-11 transition-all duration-700 ease-in-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            className={`p-4 px-6 mx-auto mt-11 transition-all duration-700 ease-in-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
         >
 
 
-            <div className="flex flex-col sm:flex-row justify-between w-full mb-8 md:items-end items-center">
+            <div className="flex flex-col md:flex-row justify-between max-w-7/12 mx-auto mb-8 md:items-end items-center">
                 <h1 className={`text-4xl ${montserrat.className}`}>{`Where I've Worked`} </h1>
 
                 <Link
                     href="/resume.pdf"
-                    className={`mx-auto sm:mx-0 purple text-xl border-box hover:text-[#c084fc] transition-all group ${montserrat.className} flex flex-row items-center`}
+                    className={`mx-auto mt-2 md:m-0 purple text-xl border-box hover:text-[#c084fc] transition-all group ${montserrat.className} flex flex-row items-center`}
                 >
                     VIEW FULL RESUME <FaArrowRight className="h-5 w-5 ml-1 group-hover:translate-x-1 transition-all" />
                 </Link>
@@ -157,7 +157,7 @@ export default function ExperienceSection() {
                 </div>
                 {/* Job Description Section */}
                 <div
-                    className={`col-span-10 px-6 transition-all duration-500 ${fadeOut
+                    className={` col-span-10 px-6 transition-all duration-500 ${fadeOut
                         ? 'opacity-0'
                         : fadeIn
                             ? 'opacity-100 translate-y-0'

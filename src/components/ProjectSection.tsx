@@ -12,7 +12,7 @@ const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 export default function ProjectSection() {
     const [visibleCards, setVisibleCards] = useState<{ [key: number]: boolean }>({});
     const [isSectionVisible, setIsSectionVisible] = useState(false);
-    
+
     const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
     const sectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -69,18 +69,14 @@ export default function ProjectSection() {
     ];
 
     return (
-        <div ref={sectionRef} className="p-4 px-6 md:max-w-6xl min-h-72 mx-auto mt-5 mb-16">
-            
-            <div
-                className={`flex flex-col sm:flex-row justify-between w-full mb-8 md:items-end items-center transition-all duration-700 ease-in-out transform ${
-                    isSectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-                }`}
-            >
-                <h1 className={`text-4xl ${montserrat.className}`}> 2024 Featured Projects </h1>
+        <div ref={sectionRef} className="p-4 px-6 min-h-72 mx-auto mt-5 mb-16">
+
+            <div className="flex flex-col md:flex-row justify-between max-w-7/12 mx-auto mb-8 md:items-end items-center">
+                <h1 className={`text-4xl ${montserrat.className}`}>{`2024 Featured Projects`} </h1>
 
                 <Link
                     href="/resume.pdf"
-                    className={`mx-auto sm:mx-0 purple text-xl border-box hover:text-[#c084fc] transition-all group ${montserrat.className} flex flex-row items-center`}
+                    className={`mx-auto mt-2 sm:text-right md:m-0 purple text-xl border-box hover:text-[#c084fc] transition-all group ${montserrat.className} flex flex-row items-center`}
                 >
                     VIEW FULL PORTFOLIO <FaArrowRight className="h-5 w-5 ml-1 group-hover:translate-x-1 transition-all" />
                 </Link>
@@ -93,9 +89,8 @@ export default function ProjectSection() {
                         ref={(el) => {
                             cardRefs.current[index] = el;
                         }}
-                        className={`transition-all duration-700 ease-in-out transform ${
-                            visibleCards[index] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-                        }`}
+                        className={`transition-all duration-700 ease-in-out transform ${visibleCards[index] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+                            }`}
                     >
                         <ProjectCard
                             title={project.title}

@@ -16,7 +16,7 @@ export default function LandingSection() {
 
     return (
         <div
-            className={`p-4 px-6 lg:max-w-6xl min-h-80 mx-auto flex mt-11 md:flex-row flex-col justify-between content-center transition-all duration-700 ease-in-out transform ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            className={`p-4 px-2 min-h-80 w-full mx-auto flex mt-11 md:flex-row flex-col justify-between content-center transition-all duration-700 ease-in-out transform ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
             {/* Left Section - Heading */}
             <div className={`flex h-4/5 flex-col basis-1/2 text-center md:text-left ml-3 ${montserrat.className}`}>
@@ -40,7 +40,7 @@ export default function LandingSection() {
             </div>
 
             {/* Right Section - Blurb */}
-            <div className="basis-1/2 h-4/5 md:text-right text-center flex justify-end  mr-3">
+            <div className="basis-1/2 h-4/5 md:text-right text-center flex px-2 md:px-0 justify-end mr-3">
                 <div className="xl:w-3/4 lg:w-5/6 md:w-full md:m-0 md:mt-4 mx-auto">
                     <p className="light-gray mb-3">Math & Computer Science @ UMD</p>
                     <p className="blurb fade-in-text delay-500">

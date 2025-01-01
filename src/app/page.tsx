@@ -1,7 +1,9 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+
+import SocialBar from '../components/SocialBar';
+import SocialBar2 from '../components/SocialBar2';
 import Link from 'next/link';
-import { FaArrowRight } from 'react-icons/fa';
 
 import BlogSection from '../components/BlogSection';
 import ExperienceSection from "../components/ExperienceSection";
@@ -20,9 +22,11 @@ const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 export default function Home() {
   return (
 
-    <div >
+    <div className="container mx-auto px-4 w-full xl:max-w-6xl md:max-w-2xl lg:max-w-4xl sm:max-w-xl max-w-lg " >
       < Navbar />
       < LandingSection />
+      < SocialBar />
+      {/* < SocialBar2 /> */}
       < CertificationSection />
       < ExperienceSection />
       < ProjectSection />

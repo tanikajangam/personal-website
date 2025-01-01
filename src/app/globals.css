@@ -47,6 +47,15 @@ body {
   font-family: 'Open Sans';
 }
 
+.rotated-text {
+  transform: rotate(-90deg) !important;
+  white-space: nowrap;
+  /* Prevents line breaks */
+  transform-origin: left bottom;
+  /* Ensures rotation pivots from the bottom left */
+}
+
+
 @keyframes fade-in {
   0% {
     opacity: 0;

@@ -16,7 +16,7 @@ export default function ProjectCard({
     imageUrl,
 }: ProjectCardProps) {
     return (
-        <div className="grid grid-cols-12 gap-4 mx-auto lg:max-w-6xl md:max-w-xl sm:max-w-xl">
+        <div className="grid grid-cols-12 gap-4 mx-auto">
 
             {/* Image Section */}
             <div className="col-span-12 lg:col-start-1 lg:col-end-5">

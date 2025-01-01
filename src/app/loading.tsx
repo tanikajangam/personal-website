@@ -8,29 +8,25 @@ export default function LoadingScreen({ children }: { children: React.ReactNode 
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            setFadeOut(true);
-        }, 2500);  // Simulated loading time
+            setFadeOut(true);  // Trigger fade-out
+            setTimeout(() => {
+                setLoading(false);  // Unmount after fade completes
+            }, 500);  // Match this to the CSS transition duration
+        }, 1000);  // Simulated loading time
 
-        const unmountTimer = setTimeout(() => {
-            setLoading(false);
-        }, 3000);  // Wait for fade-out to complete
-
-        return () => {
-            clearTimeout(timer);
-            clearTimeout(unmountTimer);
-        };
+        return () => clearTimeout(timer);
     }, []);
 
     if (loading) {
         return (
             <div
-                className={`flex justify-center items-center w-full min-h-screen bg-[#2C2F34] transition-opacity duration-500 ease-in-out ${fadeOut ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                className={`flex justify-center items-center w-full min-h-screen bg-[#2C2F34]
                     }`}
             >
                 <object
                     type="image/svg+xml"
                     data="/loading.svg"
-                    className="w-48 h-48"
+                    className={`w-1/2 h-1/2`}
                 ></object>
             </div>
         );

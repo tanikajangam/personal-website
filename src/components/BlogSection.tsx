@@ -74,11 +74,11 @@ export default function BlogSection() {
     return (
         <div
             ref={sectionRef}
-            className={`p-4 px-6 min-h-96 lg:max-w-6xl mx-auto transition-all duration-700 ease-in-out transform ${visibleSection ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            className={`p-4 px-6 min-h-96 mx-auto transition-all duration-700 ease-in-out transform ${visibleSection ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
         >
             <h1
-                className={`text-4xl text-center sm:text-left mb-4 transition-all duration-700 ease-in-out ${visibleSection ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                className={`text-4xl text-center md:text-left mb-4 transition-all duration-700 ease-in-out ${visibleSection ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                     } ${montserrat.className}`}
             >
                 Latest Blog (Tech/Productivity) Posts

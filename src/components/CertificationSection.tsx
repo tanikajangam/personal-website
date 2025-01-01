@@ -16,8 +16,11 @@ export default function CertificationSection() {
     }, []);
 
     return (
-        <div className={`p-4 px-6 lg:max-w-4xl min-h-72 mx-auto flex mt-11 md:flex-row flex-col justify-center items-center content-center transition-all duration-700 ease-in-out transform ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`p-4 px-6 min-h-72 mx-auto flex mt-11 md:flex-row flex-col justify-center items-center content-center transition-all duration-700 ease-in-out transform ${animate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 
+            <div>
+
+            </div>
             {/* Text Section */}
             <div className={`flex h-4/5 flex-col basis-1/2 text-center content-center md:text-left ml-3 ${montserrat.className}`}>
                 <h1 className="text-4xl my-2 opacity-0 animate-fade-in-left">2x Certified</h1>

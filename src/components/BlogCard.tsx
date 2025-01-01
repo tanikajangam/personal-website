@@ -11,17 +11,17 @@ interface BlogCardProps {
 
 export default function BlogCard({ title, date, url }: BlogCardProps) {
     return (
-        <div className="p-2 px-6 w-full mx-auto">
-            <div className="flex flex-col text-left sm:flex-row justify-between sm:max-w-2xl lg:max-w-4xl mx-auto group">
+        <div className="p-2 w-full mx-auto">
+            <div className="flex flex-col text-left md:flex-row justify-between mx-auto group">
                 <a
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`text-xl text-[#c084fc] group-hover:text-[#d8b4fe] transition-colors duration-300 ease-in-out ${montserrat.className}`}
+                    className={`text-xl mr-3 text-[#c084fc] text-center group-hover:text-[#d8b4fe] transition-colors duration-300 ease-in-out ${montserrat.className}`}
                 >
                     {title}
                 </a>
-                <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 ease-in-out">
+                <p className="text-gray-400 group-hover:text-gray-300 md:text-right text-center transition-colors duration-300 ease-in-out">
                     {date}
                 </p>
             </div>
