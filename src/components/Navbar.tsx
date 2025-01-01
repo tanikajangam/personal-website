@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
 import "../app/globals.css";
 import { Montserrat } from 'next/font/google';
+import Link from 'next/link';
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 
@@ -27,18 +28,18 @@ export default function Navbar() {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex lg:flex basis-1/3 space-x-8 navbar w-full text-base justify-between">
-                        <a href="#projects" className="text-white relative group">
+                        <Link href="#projects" className="text-white relative group">
                             Projects
                             <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
-                        </a>
-                        <a href="#resume" className="text-white relative group">
+                        </Link>
+                        <Link href="/resume.pdf" className="text-white relative group">
                             Resume
                             <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
-                        </a>
-                        <a href="#blog" className="text-white relative group">
+                        </Link>
+                        <Link href="#blog" className="text-white relative group">
                             Blog
                             <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -54,13 +55,13 @@ export default function Navbar() {
                     className={`md:hidden flex flex-col rounded-md overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
                 >
                     <div className="text-right py-2 px-4 transform transition-all duration-300 hover:translate-x-2">
-                        <a href="#projects" className="text-white hover:text-purple-400">Projects</a>
+                        <Link href="#projects" className="text-white hover:text-purple-400">Projects</Link>
                     </div>
                     <div className="text-right py-2 px-4 transform transition-all duration-300 hover:translate-x-2">
-                        <a href="#resume" className="text-white hover:text-purple-400">Resume</a>
+                        <Link href="/resume" className="text-white hover:text-purple-400">Resume</Link>
                     </div>
                     <div className="text-right py-2 px-4 transform transition-all duration-300 hover:translate-x-2">
-                        <a href="#blog" className="text-white hover:text-purple-400">Blog</a>
+                        <Link href="#blog" className="text-white hover:text-purple-400">Blog</Link>
                     </div>
                 </div>
             </nav>

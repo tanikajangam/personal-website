@@ -75,7 +75,7 @@ export default function ProjectSection() {
                 <h1 className={`text-4xl ${montserrat.className}`}>{`2024 Featured Projects`} </h1>
 
                 <Link
-                    href="/resume.pdf"
+                    href="/portfolio"
                     className={`mx-auto mt-2 sm:text-right md:m-0 purple text-xl border-box hover:text-[#c084fc] transition-all group ${montserrat.className} flex flex-row items-center`}
                 >
                     VIEW FULL PORTFOLIO <FaArrowRight className="h-5 w-5 ml-1 group-hover:translate-x-1 transition-all" />
