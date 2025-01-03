@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
 import { Montserrat } from 'next/font/google';
+
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 
 interface BlogPost {
@@ -11,6 +11,7 @@ interface BlogPost {
     date: string;
 }
 
+// Static data (replace with external fetch if needed)
 const blogPosts: Record<string, BlogPost> = {
     "aws-certification": {
         title: "AWS Solutions Architect Professional Exam",
@@ -29,16 +30,13 @@ const blogPosts: Record<string, BlogPost> = {
     },
 };
 
-// Explicitly type the props
-interface BlogPostPageProps {
-    params: {
-        slug: string;
-    };
-}
-// Dynamic Page Rendering
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
-    const { slug } = await params;
-    const post = blogPosts[slug];
+// Dynamic route component
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+    const post = blogPosts[params.slug];
+
+    if (!post) {
+        notFound();  // Show 404 page if post is not found
+    }
 
     return (
         <div className="container mx-auto px-4 min-h-screen">
@@ -53,4 +51,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <Footer />
         </div>
     );
+}
+
+// Generate static paths for dynamic routes
+export async function generateStaticParams() {
+    return Object.keys(blogPosts).map((slug) => ({
+        slug,
+    }));
 }
