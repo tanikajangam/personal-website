@@ -54,6 +54,9 @@ body {
   transform-origin: left bottom;
   /* Ensures rotation pivots from the bottom left */
 }
+button {
+    transition: all 0.3s ease-in-out;
+}
 
 
 @keyframes fade-in {

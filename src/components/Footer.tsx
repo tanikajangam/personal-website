@@ -7,7 +7,8 @@ const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 
 export default function Footer() {
     return (
-        <div className="">
+        <div className=" relative w-full">
+
             <h1 className={`text-5xl mb-2 bold text-center text-[#808082] ${montserrat.className}`}>
                 TJ
             </h1>

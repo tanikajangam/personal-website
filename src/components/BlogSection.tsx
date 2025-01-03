@@ -62,9 +62,10 @@ export default function BlogSection() {
         {
             title: "POS Tagging in NLP using Markov Chains",
             date: "December 2024",
-            url: "#",
+            url: "/markov-research-paper.pdf",
         },
         {
+
             title: "My First Post",
             date: "December 2024",
             url: "#",

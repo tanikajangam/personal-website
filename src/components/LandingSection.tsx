@@ -21,7 +21,7 @@ export default function LandingSection() {
             {/* Left Section - Heading */}
             <div className={`flex h-4/5 flex-col basis-1/2 text-center md:text-left ml-3 ${montserrat.className}`}>
                 <h1 className="text-7xl light-gray my-2">
-                    <span className="fade-in-text">Hi,</span>
+                    <span className="fade-in-text">Hi.</span>
                 </h1>
                 <h1 className="text-7xl light-gray mb-3">
                     I&apos;m <span className="white fade-in-text delay-150">Tanika</span>.
@@ -32,7 +32,7 @@ export default function LandingSection() {
 
                 {/* Call to Action Button with Fixed Hover Effect */}
                 <Link
-                    href="#blog"
+                    href="/blog"
                     className="w-48 mx-auto md:mx-0 purple text-center border-box rounded my-5 outline p-2 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-[#A36BC0] hover:text-white"
                 >
                     Check out my blog!
@@ -47,10 +47,9 @@ export default function LandingSection() {
                         Throughout my college career I&apos;ve developed an increasing passion for software development and problem-solving,
                         and cloud computing. I developed this website as a way to streamline my creativity and flow of thoughts.
                     </p>
-                    <br />
-                    <p className="blurb fade-in-text delay-700">
+                    <p className="blurb md:mt-5 mt-0f ade-in-text delay-700">
                         Recently, I worked as a cloud engineering intern at
-                        <span className="purple"> Vanguard</span>, where I work on innovative solutions that enhance efficiency and scalability.
+                        <Link href="https://investor.vanguard.com/corporate-portal" className="purple" target="_blank" rel="noopener noreferrer"> Vanguard</Link>, where I work on innovative solutions that enhance efficiency and scalability.
                     </p>
                 </div>
             </div>

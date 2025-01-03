@@ -26,7 +26,7 @@ export default function CertificationSection() {
                 <h1 className="text-4xl my-2 opacity-0 animate-fade-in-left">2x Certified</h1>
                 <div>
                     <Link
-                        href="https://www.credly.com/users/tanika-jangam"
+                        href="https://www.credly.com/users/tanika-jangam" target="_blank" rel="noopener noreferrer"
                         className="mx-auto sm:mx-0 purple text-xl border-box underline hover:text-[#A36BC0] transition-all"
                         passHref
                     >
@@ -38,23 +38,33 @@ export default function CertificationSection() {
             {/* Certificate Images Section (Hover Effect Only) */}
             <div className="w-full basis-1/2 flex flex-row mt-4 justify-center md:justify-end">
                 <div className="transition-transform duration-700 ease-out">
-                    <Image
-                        src="/dev-cert.png"
-                        alt="AWS Developer Certification - Associate Level"
-                        width={170}
-                        height={170}
-                        className="hover:scale-105 transition-all duration-300"
-                    />
+                    <Link
+                        href="/AWS Certified Developer - Associate certificate.pdf" target="_blank" rel="noopener noreferrer"
+                        passHref
+                    >
+                        <Image
+                            src="/dev-cert.png"
+                            alt="AWS Developer Certification - Associate Level"
+                            width={170}
+                            height={170}
+                            className="hover:scale-105 transition-all duration-300"
+                        />
+                    </Link>
                 </div>
 
                 <div className="ml-6 transition-transform duration-700 ease-out">
-                    <Image
-                        src="/solarch-cert.png"
-                        alt="AWS Solutions Architect Certification - Associate Level"
-                        width={170}
-                        height={170}
-                        className="hover:scale-105 transition-all duration-300"
-                    />
+                    <Link
+                        href="/AWS Certified Solutions Architect - Associate certificate.pdf" target="_blank" rel="noopener noreferrer"
+                        passHref
+                    >
+                        <Image
+                            src="/solarch-cert.png"
+                            alt="AWS Solutions Architect Certification - Associate Level"
+                            width={170}
+                            height={170}
+                            className="hover:scale-105 transition-all duration-300"
+                        />
+                    </Link>
                 </div>
             </div>
         </div>

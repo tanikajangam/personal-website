@@ -22,16 +22,17 @@ const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 export default function Home() {
   return (
 
-    <div className="container mx-auto px-4 w-full xl:max-w-6xl md:max-w-2xl lg:max-w-4xl sm:max-w-xl max-w-lg " >
+    <div className="container mx-auto px-4 w-full xl:max-w-7xl md:max-w-3xl lg:max-w-5xl sm:max-w-2xl max-w-xl " >
       < Navbar />
       < LandingSection />
-      < SocialBar />
       {/* < SocialBar2 /> */}
       < CertificationSection />
       < ExperienceSection />
       < ProjectSection />
       < BlogSection />
       < Footer />
+
+      < SocialBar />
     </div >
   );
 }

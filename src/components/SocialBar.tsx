@@ -4,7 +4,7 @@ import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 export default function SocialBar() {
     return (
-        <div className="group fixed sm:flex hidden left-4 flex-row items-start place-items-start space-y-6 transition-all duration-300">
+        <div className="group flex fixed sm:flex hidden bottom-0 left-0 flex-row items-start place-items-start space-y-6 transition-all duration-300">
             {/* Vertical Line */}
             <div className="relative group-hover:bottom-0 bottom-[-16px] transition-all duration-300">
                 <Image

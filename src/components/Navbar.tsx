@@ -22,13 +22,13 @@ export default function Navbar() {
                     {/* Logo with Hover Animation */}
                     <div className="logo basis-2/3">
                         <div className="text-purple-400 text-5xl font-normal transition-transform duration-300 ease-in-out">
-                            TJ
+                            <Link href="/" > TJ </Link>
                         </div>
                     </div>
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex lg:flex basis-1/3 space-x-8 navbar w-full text-base justify-between">
-                        <Link href="#projects" className="text-white relative group">
+                        <Link href="/portfolio" className="text-white relative group">
                             Projects
                             <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
                         </Link>
@@ -36,7 +36,7 @@ export default function Navbar() {
                             Resume
                             <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
                         </Link>
-                        <Link href="#blog" className="text-white relative group">
+                        <Link href="/blog" className="text-white relative group">
                             Blog
                             <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
                         </Link>
@@ -55,13 +55,13 @@ export default function Navbar() {
                     className={`md:hidden flex flex-col rounded-md overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
                 >
                     <div className="text-right py-2 px-4 transform transition-all duration-300 hover:translate-x-2">
-                        <Link href="#projects" className="text-white hover:text-purple-400">Projects</Link>
+                        <Link href="/portfolio" className="text-white hover:text-purple-400">Projects</Link>
                     </div>
                     <div className="text-right py-2 px-4 transform transition-all duration-300 hover:translate-x-2">
-                        <Link href="/resume" className="text-white hover:text-purple-400">Resume</Link>
+                        <Link href="/resume.pdf" className="text-white hover:text-purple-400">Resume</Link>
                     </div>
                     <div className="text-right py-2 px-4 transform transition-all duration-300 hover:translate-x-2">
-                        <Link href="#blog" className="text-white hover:text-purple-400">Blog</Link>
+                        <Link href="/blog" className="text-white hover:text-purple-400">Blog</Link>
                     </div>
                 </div>
             </nav>
