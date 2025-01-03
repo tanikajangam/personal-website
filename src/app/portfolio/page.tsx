@@ -12,9 +12,10 @@ const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 
 export default function Portfolio() {
     const [visibleCards, setVisibleCards] = useState<{ [key: number]: boolean }>({});
+    const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
     const [activeFilters, setActiveFilters] = useState<string[]>([]);
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
 
     const projects = [
         {
@@ -74,7 +75,8 @@ export default function Portfolio() {
     ];
 
 
-    const tags = ["Winner", "Next.js", "AWS", "MongoDB", "HTML/CSS", "PyTorch"];
+
+    const tags = ["Winner", "Next.js", "AWS", "MongoDB", "HTML/CSS", "Pytorch"];
 
     const groupedProjects = projects.reduce((acc, project) => {
         const year = project.year;
@@ -85,12 +87,16 @@ export default function Portfolio() {
 
     // Filter projects based on tags and search query
     const filteredProjects = projects.filter((project) => {
-        const matchesFilters = activeFilters.length === 0 || activeFilters.every(
-            (filter) =>
-                project.skills.includes(filter) || (filter === "Winner" && project.isAwardWinner)
-        );
+        const matchesFilters =
+            activeFilters.length === 0 ||
+            activeFilters.every(
+                (filter) =>
+                    project.skills.includes(filter) ||
+                    (filter === "Winner" && project.isAwardWinner)
+            );
 
-        const matchesSearch = searchQuery === "" ||
+        const matchesSearch =
+            searchQuery === "" ||
             project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
             project.skills.some((skill) =>
                 skill.toLowerCase().includes(searchQuery.toLowerCase())
@@ -100,7 +106,6 @@ export default function Portfolio() {
         return matchesFilters && matchesSearch;
     });
 
-    // Handle Filter Toggle
     const toggleFilter = (filter: string) => {
         if (activeFilters.includes(filter)) {
             setActiveFilters(activeFilters.filter((f) => f !== filter));
@@ -109,17 +114,16 @@ export default function Portfolio() {
         }
     };
 
-    // Intersection Observer for Animations
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const index = cardRefs.current.findIndex((card) => card === entry.target);
-                        if (index !== -1) {
-                            setVisibleCards((prev) => ({ ...prev, [index]: true }));
-                            observer.unobserve(entry.target);
-                        }
+                    const index = cardRefs.current.findIndex(
+                        (card) => card === entry.target
+                    );
+                    if (entry.isIntersecting && index !== -1) {
+                        setVisibleCards((prev) => ({ ...prev, [index]: true }));
+                        observer.unobserve(entry.target);
                     }
                 });
             },
@@ -134,11 +138,11 @@ export default function Portfolio() {
     }, []);
 
     return (
-        <div className="container mx-auto px-4 ">
+        <div className="container mx-auto px-4">
             <Navbar />
-            <div className="flex-1 p-8">
-                <h1 className="text-5xl text-[#A36BC0] mb-4">My Portfolio</h1>
-                <p className="text-xl text-gray-300 mb-6">
+            <div className=" py-7">
+                <h1 className={`text-5xl text-[#A36BC0] mb-4 ${montserrat.className}`}>My Portfolio</h1>
+                <p className="text-xl mt-3 text-gray-300 mb-6">
                     Here are some of the projects I’ve worked on.
                 </p>
 
@@ -149,62 +153,95 @@ export default function Portfolio() {
                         placeholder="Search by project, skills, or year..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full p-3 rounded-md bg-[#2C2F34] text-white border border-[#575757] focus:outline-none focus:ring-2 focus:ring-[#A36BC0]"
+                        className="w-full p-3 mt-4 mb-0 sm:mb-4 rounded-full bg-[#2C2F34] text-white border border-[#575757] focus:outline-none focus:ring-2 focus:ring-[#A36BC0]"
                     />
                 </div>
 
-                {/* Filter Bar */}
-                <div className="flex flex-wrap gap-4 mb-10">
-                    {tags.map((tag) => (
-                        <button
-                            key={tag}
-                            className={`px-4 py-2 border rounded-full ${activeFilters.includes(tag)
-                                ? 'border-[#A36BC0] text-[#A36BC0]'
-                                : 'border-gray-500 text-gray-400 hover:border-[#A36BC0] hover:text-[#A36BC0]'
-                                }`}
-                            onClick={() => toggleFilter(tag)}
-                        >
-                            {tag}
-                        </button>
-                    ))}
+                <div className="flex flex-col md:flex-row">
+
+                    <div className="flex md:hidden flex-row mr-1.5 mb-1 sm:m-0 flex-wrap">
+                        {tags.map((tag) => (
+                            <button
+                                key={tag}
+                                className={`px-4 py-2 mr-1.5 my-1.5 border ${montserrat.className} text-sm rounded-full  ${activeFilters.includes(tag)
+                                    ? 'border-[#A36BC0] text-[#A36BC0]'
+                                    : 'border-gray-500 text-gray-400 hover:border-[#A36BC0] hover:text-[#A36BC0]'
+                                    }`}
+                                onClick={() => toggleFilter(tag)}
+                            >
+                                {tag}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* project cards */}
+
+                    <div className="basis-9/12 w-full ">
+                        {Object.keys(groupedProjects)
+                            .sort((a, b) => parseInt(b) - parseInt(a))
+                            .map((year) => (
+                                <div className="mr-2" key={year}>
+                                    <h2 className={`text-4xl ${montserrat.className} purple mt-10 mb-6`}>{year}</h2>
+                                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 md:max-w-2xl lg:max-w-6xl">
+                                        {filteredProjects
+                                            .filter((project) => project.year === year)
+                                            .map((project, index) => (
+                                                <div
+                                                    key={index}
+                                                    ref={(el) => {
+                                                        cardRefs.current[index] = el;
+                                                    }}
+                                                    className={`transition-all duration-700 ease-in-out transform `}
+                                                >
+                                                    <ProjectCard2
+                                                        title={project.title}
+                                                        description={project.description}
+                                                        githubUrl={project.githubUrl}
+                                                        youtubeUrl={project.youtubeUrl}
+                                                        imageUrl={project.imageUrl}
+                                                        websiteUrl={project.websiteUrl}
+                                                        skills={project.skills}
+                                                        year={project.year}
+                                                        isAwardWinner={project.isAwardWinner}
+                                                    />
+                                                </div>
+                                            ))}
+                                    </div>
+                                </div>
+                            ))}
+                    </div>
+
+
+                    {/* Filter Bar */}
+                    <div className="basis-3/12 w-full hidden  mb-10 md:flex flex-row justify-start items-start">
+                        <svg width="30%" height="30%" viewBox="0 0 16 708" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8ZM6.5 8V698.5H9.5V8H6.5Z" fill="#A36BC0" />
+                        </svg>
+
+
+                        <div className="ml-1.5 w-full">
+
+                            <h2 className={`text-2xl my-2 ${montserrat.className}`}>Filters</h2>
+                            {tags.map((tag) => (
+                                <button
+                                    key={tag}
+                                    className={`px-4 py-2 mr-1.5 my-1.5 border ${montserrat.className} text-sm rounded-full  ${activeFilters.includes(tag)
+                                        ? 'border-[#A36BC0] text-[#A36BC0]'
+                                        : 'border-gray-500 text-gray-400 hover:border-[#A36BC0] hover:text-[#A36BC0]'
+                                        }`}
+                                    onClick={() => toggleFilter(tag)}
+                                >
+                                    {tag}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
                 </div>
 
-                {Object.keys(groupedProjects)
-                    .sort((a, b) => parseInt(b) - parseInt(a))
-                    .map((year) => (
-                        <div key={year}>
-                            <h2 className="text-4xl text-[#c3c7cb] mt-10 mb-6">{year}</h2>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {filteredProjects
-                                    .filter((project) => project.year === year)
-                                    .map((project, index) => (
-                                        <div
-                                            key={index}
-                                            ref={(el) => {
-                                                cardRefs.current[index] = el;
-                                            }}
-                                            className={`transition-all duration-700 ease-in-out transform ${visibleCards[index]
-                                                ? "opacity-100 translate-y-0"
-                                                : "opacity-0 translate-y-20"
-                                                }`}
-                                        >
-                                            <ProjectCard2
-                                                title={project.title}
-                                                description={project.description}
-                                                githubUrl={project.githubUrl}
-                                                youtubeUrl={project.youtubeUrl}
-                                                imageUrl={project.imageUrl}
-                                                websiteUrl={project.websiteUrl}
-                                                skills={project.skills}
-                                                year={project.year}
-                                                isAwardWinner={project.isAwardWinner}
-                                            />
-                                        </div>
-                                    ))}
-                            </div>
-                        </div>
-                    ))}
             </div>
+
+
             <Footer />
         </div>
     );
