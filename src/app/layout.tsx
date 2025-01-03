@@ -1,7 +1,3 @@
-// /src/app/layout.tsx
-import "./globals.css";
-import LoadingScreen from "./loading";
-
 export const metadata = {
   title: "Tanika's Portfolio",
   description: "Welcome to my website",
@@ -15,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <LoadingScreen>{children}</LoadingScreen>
+        {children}
       </body>
     </html>
   );

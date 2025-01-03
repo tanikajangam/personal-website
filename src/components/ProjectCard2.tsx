@@ -1,8 +1,8 @@
 import { FaGithub, FaYoutube, FaExternalLinkAlt, FaTrophy } from 'react-icons/fa';
-import { Montserrat } from 'next/font/google';
+
 import Link from 'next/link';
 import { useState } from 'react';
-
+import { Montserrat } from 'next/font/google';
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 
 interface ProjectCardProps {
@@ -82,14 +82,11 @@ export default function ProjectCard2({
                         </a>
 
                         {isAwardWinner && (
-                            <a
-                                href={githubUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-[#D9C362] hover:text-[#D1B848] transition"
+                            <span
                             >
-                                <FaTrophy size={28} />
-                            </a>
+                                <FaTrophy size={28}
+                                    className="text-[#D9C362] hover:text-[#D1B848] transition" />
+                            </span>
 
                         )}
                     </div>

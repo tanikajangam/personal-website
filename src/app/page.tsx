@@ -15,25 +15,28 @@ import Image from 'next/image';
 import { useState, useEffect, useRef } from "react";
 import "./globals.css";
 import { Montserrat } from 'next/font/google';
+import LayoutWrapper from './LayoutWrapper';
 
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 
 export default function Home() {
   return (
+    <>
+      <LayoutWrapper>
+        <div className="container min-height-100 mx-auto px-4 " >
+          < Navbar />
+          < LandingSection />
+          {/* < SocialBar2 /> */}
+          < CertificationSection />
+          < ExperienceSection />
+          < ProjectSection />
+          < BlogSection />
+          < Footer />
 
-    <div className="container mx-auto px-4 " >
-      < Navbar />
-      < LandingSection />
-      {/* < SocialBar2 /> */}
-      < CertificationSection />
-      < ExperienceSection />
-      < ProjectSection />
-      < BlogSection />
-      < Footer />
-
-      {/* < SocialBar /> */}
-    </div >
+        </div >
+      </ LayoutWrapper>
+    </>
   );
 }
 

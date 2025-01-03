@@ -2,6 +2,8 @@
 
 import { Montserrat } from 'next/font/google';
 import "../app/globals.css";
+import SocialBar from './SocialBar';
+
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 
@@ -44,6 +46,8 @@ export default function Footer() {
             <p className="text-center text-xs text-[#6C6E8C] text-gray-400 my-1">
                 Website made by Tanika Jangam | All rights reserved 2024
             </p>
+
+            < SocialBar />
         </div>
     );
 }

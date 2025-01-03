@@ -64,7 +64,7 @@ export default function Portfolio() {
 
         {
             title: "KodaHacks",
-            description: "A Hackathon Website that I made that turned out to be really cool.But never happened.",
+            description: "A Hackathon Website that I made that turned out to be really cool. But never happened.",
             githubUrl: "https://github.com/tanikajangam/Hackathon-Website",
             youtubeUrl: "https://www.youtube.com/watch?v=VXwmXKu6QxA",
             imageUrl: "/project-kodahacks.png",
@@ -141,12 +141,12 @@ export default function Portfolio() {
         <div className="container mx-auto px-4">
             <Navbar />
             <div className=" py-7">
-                <h1 className={`text-5xl text-[#A36BC0] mb-4 ${montserrat.className}`}>My Portfolio</h1>
-                <p className="text-xl mt-3 text-gray-300 mb-6">
+                <h1 className={`text-5xl text-[#A36BC0] mb-4 light-gray ${montserrat.className}`} >My <span className="white">Portfolio</span>.</h1>
+                <p className={`text-xl mt-3 text-gray-300 mb-6 ${montserrat.className}`}>
                     Here are some of the projects I’ve worked on.
                 </p>
 
-                {/* Search Bar */}
+                {/* Search Bar */}s
                 <div className="mb-6">
                     <input
                         type="text"
