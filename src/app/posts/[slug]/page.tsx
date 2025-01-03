@@ -35,14 +35,10 @@ interface BlogPostPageProps {
         slug: string;
     };
 }
-
 // Dynamic Page Rendering
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-    const post = blogPosts[params.slug];
-
-    if (!post) {
-        notFound();
-    }
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+    const { slug } = await params;
+    const post = blogPosts[slug];
 
     return (
         <div className="container mx-auto px-4 min-h-screen">
