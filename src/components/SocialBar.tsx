@@ -4,7 +4,7 @@ import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 export default function SocialBar() {
     return (
-        <div className="group absolute sm:flex hidden -bottom-12 -left-16 flex-row items-start place-items-start space-y-6 ">
+        <div className="group absolute sm:flex hidden -bottom-1 -left-16 flex-row items-start place-items-start space-y-6 ">
             {/* Vertical Line */}
             <div className="relative">
                 <Image

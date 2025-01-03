@@ -1,7 +1,9 @@
-// src/app/posts/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+
+import { Montserrat } from 'next/font/google';
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 
 interface BlogPost {
     title: string;
@@ -27,7 +29,15 @@ const blogPosts: Record<string, BlogPost> = {
     },
 };
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+// Explicitly type the props
+interface BlogPostPageProps {
+    params: {
+        slug: string;
+    };
+}
+
+// Dynamic Page Rendering
+export default function BlogPostPage({ params }: BlogPostPageProps) {
     const post = blogPosts[params.slug];
 
     if (!post) {
@@ -35,10 +45,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     }
 
     return (
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 min-h-screen">
             <Navbar />
-            <div className="p-8">
-                <h1 className="text-5xl text-[#A36BC0] mb-4">{post.title}</h1>
+            <div className="p-8 min-h-screen">
+                <h1 className={`text-5xl text-[#A36BC0] mb-4 ${montserrat.className}`}>{post.title}</h1>
                 <p className="text-gray-400">{post.date}</p>
                 <div className="mt-6 leading-relaxed text-gray-300">
                     {post.content}

@@ -14,10 +14,10 @@ import Image from 'next/image';
 
 import { useState, useEffect, useRef } from "react";
 import "./globals.css";
-import { Montserrat } from 'next/font/google';
 import LayoutWrapper from './LayoutWrapper';
 
 
+import { Montserrat } from 'next/font/google';
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
 
 export default function Home() {
