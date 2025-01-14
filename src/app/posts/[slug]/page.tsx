@@ -29,11 +29,9 @@ const blogPosts: Record<string, BlogPost> = {
     },
 };
 
-// Explicitly define the props type for the page
+// Explicitly define the type of `params`
 interface BlogPostPageProps {
-    params: {
-        slug: string;
-    };
+    params: { slug: string };
 }
 
 export default function BlogPostPage({ params }: BlogPostPageProps) {
