@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { FaGithub, FaYoutube } from 'react-icons/fa';
 
 interface ProjectCardProps {
