@@ -76,7 +76,7 @@ export default function Portfolio() {
 
 
 
-    const tags = ["Winner", "Next.js", "AWS", "MongoDB", "HTML/CSS", "Pytorch"];
+    const tags = ["Won", "Next.js", "AWS", "MongoDB", "HTML/CSS", "Pytorch"];
 
     const groupedProjects = projects.reduce((acc, project) => {
         const year = project.year;
@@ -146,7 +146,7 @@ export default function Portfolio() {
                     Here are some of the projects I’ve worked on.
                 </p>
 
-                {/* Search Bar */}s
+                {/* Search Bar */}
                 <div className="mb-6">
                     <input
                         type="text"
