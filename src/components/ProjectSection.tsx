@@ -71,7 +71,7 @@ export default function ProjectSection() {
     return (
         <div ref={sectionRef} className="p-4 px-6 min-h-72 mx-auto mt-5 mb-16">
 
-            <div className="flex flex-col md:flex-row justify-between max-w-7/12 mx-auto mb-8 md:items-end items-center">
+            <div className="flex flex-col md:flex-row justify-between max-w-7/12 mx-auto mb-8 md:items-end items-center text-center md:text-left">
                 <h1 className={`text-4xl ${montserrat.className}`}>{`Featured Projects`} </h1>
 
                 <Link

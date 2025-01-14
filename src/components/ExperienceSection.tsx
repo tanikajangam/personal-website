@@ -115,8 +115,7 @@ export default function ExperienceSection() {
                 }`}
         >
 
-
-            <div className="flex flex-col md:flex-row justify-between max-w-7/12 mx-auto mb-8 md:items-end items-center">
+            <div className="flex flex-col md:flex-row justify-between max-w-7/12 mx-auto mb-8 md:items-end items-center text-center md:text-left">
                 <h1 className={`text-4xl ${montserrat.className}`}>{`Where I've Worked`} </h1>
 
                 <Link
@@ -127,16 +126,16 @@ export default function ExperienceSection() {
                 </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-12 lg:max-w-4xl md:max-w-2xl mx-auto sm:min-h-72">
+            <div className="grid grid-cols-1 md:grid-cols-12 lg:max-w-4xl md:max-w-2xl mx-auto ">
 
                 {/* Sidebar - Company List */}
-                <div className="col-span-2 flex flex-row md:flex-col justify-center md:justify-start relative">
+                <div className="col-span-2 flex flex-row md:flex-col justify-center md:justify-start relative md:border-0 border-b-2 md:mb-0 mb-6 md:border-0 border-[#575757]">
                     {jobs.map((job, index) => (
                         <div
                             key={job.company}
-                            className={`p-4 cursor-pointer transition-all duration-300 ${selectedCompany === job.company
-                                ? 'text-[#A36BC0]'
-                                : 'text-gray-400'
+                            className={`p-4 md:pb-4 cursor-pointer transition-all duration-300 text-center md:text-left  ${selectedCompany === job.company
+                                ? 'text-[#A36BC0] '
+                                : 'text-gray-400 '
                                 }`}
                             onClick={() => handleSelect(job.company)}
                         >

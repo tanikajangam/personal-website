@@ -3,6 +3,9 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BlogCard from '@/components/BlogCard';
 import { useState, useEffect } from 'react';
+
+import LayoutWrapper from '../LayoutWrapper';
+
 import "../globals.css";
 
 import { Montserrat } from 'next/font/google';
@@ -19,7 +22,7 @@ interface BlogPost {
 
 const blogPosts: BlogPost[] = [
     {
-        title: "AWS Solutions Architect Professional Exam",
+        title: "AWS Solutions Architect Associate Exam",
         date: "December 2024",
         category: "Certifications",
         description: "A detailed breakdown of the AWS Solutions Architect exam and tips to pass it.",
@@ -72,7 +75,7 @@ export default function BlogPage() {
                     </p>
 
                     {/* Search Bar Section */}
-                    {/* <div className="my-6">
+                    <div className="my-6">
                         <input
                             type="text"
                             className="w-full p-3 rounded-md bg-[#2C2F34] text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#A36BC0]"
@@ -80,11 +83,11 @@ export default function BlogPage() {
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
-                    </div> */}
+                    </div>
 
                     {/* Blog List */}
                     <div>
-                        {/* {filteredPosts.length > 0 ? (
+                        {filteredPosts.length > 0 ? (
                             filteredPosts.map((post) => (
                                 <Link href={post.url} key={post.url} passHref legacyBehavior>
 
@@ -97,9 +100,9 @@ export default function BlogPage() {
                                 </Link>
                             ))
                         ) : (
-                            <p>No posts found.</p>
-                        )} */}
-                        <p className="mt-5 light-gray">Nothing here yet.</p>
+                            <p>Nothing here yet.</p>
+                        )}
+                        {/* <p className="mt-5 light-gray">Nothing here yet.</p> */}
                     </div>
 
 

@@ -55,7 +55,7 @@ export default function BlogSection() {
 
     const blogs = [
         {
-            title: "AWS Solutions Architect Professional Exam",
+            title: "AWS Solutions Architect Associate Exam",
             date: "December 2024",
             url: "#",
         },
@@ -86,8 +86,8 @@ export default function BlogSection() {
             </h1>
 
             <div className="space-y-6 flex flex-col justify-start w-full items-start h-full">
-                <p>Nothing here yet...</p>
-                {/* {blogs.map((blog, index) => (<div
+
+                {blogs.map((blog, index) => (<div
                     key={index}
                     ref={(el) => {
                         cardRefs.current[index] = el;
@@ -102,7 +102,7 @@ export default function BlogSection() {
 
                     <BlogCard title={blog.title} date={blog.date} url={blog.url} />
                 </div>
-                ))} */}
+                ))}
             </div>
         </div>
     );
