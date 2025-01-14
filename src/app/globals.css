@@ -20,8 +20,10 @@
   animation: fade-in 0.5s ease-in-out;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
 body {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', Arial, sans-serif;
   color: rgb(var(--foreground-rgb));
   background-color: #2C2F34;
   margin: 0;
@@ -54,8 +56,9 @@ body {
   transform-origin: left bottom;
   /* Ensures rotation pivots from the bottom left */
 }
+
 button {
-    transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 
