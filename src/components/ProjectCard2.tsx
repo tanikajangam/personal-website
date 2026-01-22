@@ -32,7 +32,7 @@ export default function ProjectCard2({
 
     return (
         <div
-            className="bg-[#33363B] shadow-lg shadow-gray-900/50 rounded-lg overflow-hidden relative group"
+            className="bg-[#33363B] h-full shadow-lg shadow-gray-900/50 rounded-lg overflow-hidden relative group"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >

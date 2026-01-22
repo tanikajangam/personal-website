@@ -45,6 +45,15 @@ export default function ProjectSection() {
     }, []);
 
     const projects = [
+
+        {
+            title: "fMRI-VR",
+            description: `fMRI-VR transforms brain scan data into an interactive 3D VR experience, giving medical professionals a deeper, more intuitive way to explore neural activity. By visualizing the brain in immersive space, we help doctors learn, teach, and analyze with greater clarity.`,
+            githubUrl: "https://github.com/tanikajangam/HopHacks2025",
+            youtubeUrl: "",
+            imageUrl: "/project-fmrivr.png",
+        },
+
         {
             title: "Plantify",
             description: `Plantify is a deep learning-powered application that identifies and classifies plant leaf diseases with 95% accuracy. By uploading a photo, users receive real-time diagnoses, disease descriptions, prevention tips, and supplement recommendations – with direct purchase links for remedies.`,

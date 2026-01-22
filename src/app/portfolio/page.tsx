@@ -18,6 +18,19 @@ export default function Portfolio() {
 
 
     const projects = [
+
+        {
+            title: "FMRI-VR",
+            description: `Turning complex brain scan data into an immersive 3D experience.`,
+            githubUrl: "https://github.com/tanikajangam/personal-website",
+            youtubeUrl: "",
+            imageUrl: "/project-fmrivr.png",
+            websiteUrl: "https://hophacks2025-two.vercel.app/",
+            skills: ["Unity", "C#", "Vercel", "Lovable"],
+            year: "2025",
+            isAwardWinner: true,
+        },
+
         {
             title: "This Website",
             description: `I know, a bit of inception here, but trust me, it's worth looking at how I made it!`,
@@ -182,7 +195,7 @@ export default function Portfolio() {
                             .map((year) => (
                                 <div className="mr-2" key={year}>
                                     <h2 className={`text-4xl ${montserrat.className} purple mt-10 mb-6`}>{year}</h2>
-                                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 md:max-w-2xl lg:max-w-6xl">
+                                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 items-stretch md:max-w-2xl lg:max-w-6xl">
                                         {filteredProjects
                                             .filter((project) => project.year === year)
                                             .map((project, index) => (
@@ -191,7 +204,7 @@ export default function Portfolio() {
                                                     ref={(el) => {
                                                         cardRefs.current[index] = el;
                                                     }}
-                                                    className={`transition-all duration-700 ease-in-out transform `}
+                                                    className={`h-full transition-all duration-700 ease-in-out transform `}
                                                 >
                                                     <ProjectCard2
                                                         title={project.title}

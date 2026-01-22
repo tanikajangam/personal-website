@@ -28,16 +28,16 @@ export default function Navbar() {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex lg:flex basis-1/3 space-x-8 navbar w-full text-base justify-between">
+                        <Link href="/" className="text-white relative group">
+                            Home
+                            <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
+                        </Link>
                         <Link href="/portfolio" className="text-white relative group">
                             Projects
                             <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
                         </Link>
                         <Link href="/resume.pdf" className="text-white relative group">
                             Resume
-                            <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
-                        </Link>
-                        <Link href="/blog" className="text-white relative group">
-                            Blog
                             <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-purple-400 transition-all duration-300 group-hover:w-full"></span>
                         </Link>
                     </div>
@@ -54,14 +54,16 @@ export default function Navbar() {
                 <div
                     className={`md:hidden flex flex-col rounded-md overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
                 >
+
+                    <div className="text-right py-2 px-4 transform transition-all duration-300 hover:translate-x-2">
+                        <Link href="/" className="text-white hover:text-purple-400">Home</Link>
+                    </div>
+
                     <div className="text-right py-2 px-4 transform transition-all duration-300 hover:translate-x-2">
                         <Link href="/portfolio" className="text-white hover:text-purple-400">Projects</Link>
                     </div>
                     <div className="text-right py-2 px-4 transform transition-all duration-300 hover:translate-x-2">
                         <Link href="/resume.pdf" className="text-white hover:text-purple-400">Resume</Link>
-                    </div>
-                    <div className="text-right py-2 px-4 transform transition-all duration-300 hover:translate-x-2">
-                        <Link href="/blog" className="text-white hover:text-purple-400">Blog</Link>
                     </div>
                 </div>
             </nav>

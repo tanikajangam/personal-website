@@ -15,6 +15,17 @@ interface Job {
 }
 
 const jobs: Job[] = [
+
+    {
+        company: 'Appian',
+        title: 'Software Engineering Intern @ Appian',
+        description: [
+            'Automated AWS resource deployment by developing Lambda functions for custom authorizers and pre- validation scripts, enhancing security and deployment efficiency using Python and CloudFormation',
+            'Provided technical support for client incidents hosted on AWS ECS, EKS, and CaaS, ensuring swift resolutions',
+            'Led weekly meetings to optimize GitHub CI / CD pipelines, resulting in a 10 % boost in deployment speeds'
+        ],
+    },
+
     {
         company: 'Vanguard',
         title: 'Cloud Operations & Engineering Intern @ Vanguard',
@@ -147,12 +158,12 @@ export default function ExperienceSection() {
                         className="absolute md:block hidden w-1 bg-[#A36BC0] top-1 left-0 right-0 z-10 transition-transform duration-300 ease-in-out"
                         style={{
                             height: '45px',
-                            transform: `translateY(${jobs.findIndex(job => job.company === selectedCompany) * 60
+                            transform: `translateY(${jobs.findIndex(job => job.company === selectedCompany) * 55
                                 }px)`,
                         }}
                     ></div>
 
-                    <div className="absolute md:block hidden h-[225px] z-0 w-1 bg-[#575757] top-1 left-0 right-0"></div>
+                    <div className="absolute md:block hidden h-[265px] z-0 w-1 bg-[#575757] top-1 left-0 right-0"></div>
                 </div>
                 {/* Job Description Section */}
                 <div
